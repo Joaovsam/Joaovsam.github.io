@@ -18,7 +18,7 @@
     <script>
       var velocidaed = 0;
       var colisao = 0;
-      AFRAME.registerComponent('frog', {
+      AFRAME.registerComponent('frog' , {
 
         tick: function () {
           this.el.getAttribute("position").z -= velocidade;
@@ -32,7 +32,7 @@
 
         },
         init: function () {
-          this.el.addEventListener("collision", (e) => {
+          this.el.addEventListener("collisions", (e) => {
             colisao = colisao + 1;
             console.log("colisao : " + colisao)
             alert("Perdeste")
