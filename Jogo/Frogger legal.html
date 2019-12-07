@@ -10,8 +10,8 @@
   <script
     src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
- <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js"></script>
-  -->
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js"></script>
+  
 </head>
 
 
@@ -46,18 +46,7 @@
         }
       });
 
-      AFRAME.registerComponent('ganha', {
-
-
-        init: function () {
-          this.el.addEventListener("collisions", (e) => {
-            pontuacao = pontuacao + 1;
-            console.log("Pontuação : " + pontuacao)
-            alert("Passou o sapo")
-            location.reload()
-          })
-        }
-      });
+      
 
 
 
