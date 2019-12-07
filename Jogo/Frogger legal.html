@@ -20,17 +20,9 @@
 
     <script>
 
-      var playerEl = document.querySelector('frog');
-      playerEl.addEventListener('collide', function (e) {
-        console.log('Player has collided with body #');
-        e.detail.target.el;  // Original entity (playerEl).
-        e.detail.body.el;    // Other entity, which playerEl touched.
-        e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
-        e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
-      });
-
       var velocidade = 0;
       var colisao = 0;
+
       AFRAME.registerComponent('frog', {
         tick: function () {
           this.el.getAttribute("position").z -= velocidade;
@@ -51,14 +43,22 @@
           })
         }
       });
+      var playerEl = document.querySelector('frog');
+      playerEl.addEventListener('collide', function (e) {
+        console.log('Player has collided with body #');
+        e.detail.target.el;  // Original entity (playerEl).
+        e.detail.body.el;    // Other entity, which playerEl touched.
+        e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
+        e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
+      });
 
 
     </script>
     <!-- Personagem -->
     <a-box wasd-controls
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UKMJ05oOWH-HR2d8_dCiE8dtU0rpL0QCelZJQp1sX1L7X0nP&s"
-      height="0.8" width="0.8" depth="0.6" id="frog" position="0 1.8 1" rotation="-1 0 0" static-body
-      physics-collider="ignoreSleep: true"></a-box>
+      height="0.8" width="0.8" depth="0.6" id="frog" position="0 1.418 -0.912" rotation="-1 0 0" static-body
+      physics-collider="ignoreSleep: true" frog material geometry velocity></a-box>
 
     <!-- POSTE -->
     <!--
@@ -85,7 +85,7 @@
                repeat="indefinite"></a-animation>
                -->
       <a-box src="carrod.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
-        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white">
+        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white" material geometry velocity>
       </a-box>;
     </a-entity>
 
@@ -94,7 +94,7 @@
     <a-entity position="-10 1.5 3" animation="property: position; to: 28 1.5 3; loop:true; dur: 3000">
       <!--<a-animation attribute="position" to="28 1.5 3" dur="3000" direction="right" repeat="indefinite"></a-animation> -->
       <a-box src="carroc.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
-        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white">
+        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white" material geometry velocity>
       </a-box>;
     </a-entity>
 
@@ -102,14 +102,14 @@
     <a-entity position="28 1.5 -1 " animation="property: position; to: -10 1.5 -1; loop:true; dur: 2500">
       <!-- <a-animation attribute="position" to="-10 1.5 -1" dur="2500" direction="left" repeat="indefinite"></a-animation>-->
       <a-box src="carroa.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
-        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white">
+        radius="2.1" height="1.1" width="1.5" depth="0.15" color="#white" material geometry velocity>
       </a-box>;
     </a-entity>
     <!-- CARRINHO 4 -->
     <a-entity position="28 1.5 -3" animation="property: position; to: -10 1.5 -3; loop:true; dur: 3500">
       <!-- <a-animation attribute="position" to="-10 1.5 -3" dur="3500" direction="left" repeat="indefinite"></a-animation>-->
       <a-box src="caminhaoa.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
-        radius="2.1" height="1.1" width="3" depth="0.1" color="#white">
+        radius="2.1" height="1.1" width="3" depth="0.1" color="#white" material geometry velocity>
       </a-box>;
     </a-entity>
 
