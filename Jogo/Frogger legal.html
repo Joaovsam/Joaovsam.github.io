@@ -43,14 +43,8 @@
           })
         }
       });
-      var playerEl = document.querySelector('frog');
-      playerEl.addEventListener('collide', function (e) {
-        console.log('Player has collided with body #');
-        e.detail.target.el;  // Original entity (playerEl).
-        e.detail.body.el;    // Other entity, which playerEl touched.
-        e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
-        e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
-      });
+
+     
 
 
     </script>
@@ -176,7 +170,7 @@
     <a-plane position="0 1 -4" rotation="-90 0 0" width="40" height="5" color="#696D71"></a-plane>
     <a-plane position="0 1 -8" rotation="-90 0 0" width="40" height="5" color="#696D71"></a-plane>
     <a-plane position="0 1 -15.5" rotation="-90 0 0" width="40" height="10" color="#0B71C9"></a-plane>
-    <a-plane position="0 1 -17" rotation="-90 0 0" width="40" height="1" color="#04E414"></a-plane>
+    <a-plane position="0 1 -21.01" rotation="-90 0 0" width="40" height="1" color="#04E414"></a-plane>
     <a-plane position="0 1 -1" rotation="-90 0 0" width="40" height="1" color="#04E414"></a-plane>
 
     <a-sky color="lightblue"></a-sky>
