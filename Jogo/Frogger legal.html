@@ -2,7 +2,7 @@
 
 <head>
 
-    
+   
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
@@ -12,58 +12,64 @@
 </head>
 
 <body>
-  <a-scene physics inspector keyboard-shortcuts screenshot vr-mode-ui>
+    <a-scene physics inspector keyboard-shortcuts screenshot vr-mode-ui>
+        <script>
+          var velocidaed = 0;
+          var colisao = 0;
+          Aframe.registerComponent('frog', {
+    
+            tick: function () {
+              this.el.getAttribute("position").z -= velocidade;
+              this.el.getAttribute("position").x += velocidade;
+              if (velocidade > -0.2) {
+                velocidade -= 0.01;
+              }
+              if (this.el.getAttribute("position").z <= +5.5) {
+                velocidade = 0;
+              }
+    
+            },
+            init: function () {
+              this.el.addEventListener("collision", (e) => {
+                colisao = colisao + 1;
+                console.log("colisao : " + colisao)
+                alert("Perdeste")
+                location.reload()
+              })
+            }
+    
+    
+          });
+    
+          documente.addEventListener('5', function (evt) {
+    
+            if (velocidade < 0.1) {
+              velocidade += 0.3;
+            }
+    
+    
+          });
+    
+    
+        </script>
+<!-- Personagem -->
+<a-box wasd-controls src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UKMJ05oOWH-HR2d8_dCiE8dtU0rpL0QCelZJQp1sX1L7X0nP&s" height="0.8" width="0.8" 
+depth="0.6" frog id="frog" position="0 1.8 1" rotation="-1 0 0"static-body  physics-collider="ignoreSleep: true" material geometry velocity></a-box>
+
+<!-- POSTE -->
+<a-entity position="10 2 0" animation="property: position; to: 13 1 0; loop: true">
+    <a-box src="postea.png" static-body physics-collider="ignoreSleep: true" position="-14 0 -5" rotation="0 0 0" radius="0.1" height="2" depth="0.1" material geometry velocity></a-box>;
+   
+     <a-box src="postea.png" static-body physics-collider="ignoreSleep: true" position="-2 0 -5" rotation="0 0 0" radius="0.1" height="2" depth="0.1" material geometry velocity></a-box>;
+
+   
+</a-entity>
 
 
-    <script>
-      var velocidade = 0;
-      var colisao = 0;
-      AFRAME.registerComponent('frog', {
-        tick: function () {
-          this.el.getAttribute("position").z -= velocidade;
-          this.el.getAttribute("position").x += velocidade;
-          if (velocidade > -0.2) {
-            velocidade -= 0.01;
-          }
-          if (this.el.getAttribute("position").z <= +5.5) {
-            velocidade = 0;
-          }
-        },
-        init: function () {
-          this.el.addEventListener("collisions", (e) => {
-            colisao = colisao + 1;
-            console.log("colisao : " + colisao)
-            alert("Perdeste")
-            location.reload()
-          })
-        }
-      });
-      
-     
-    </script>
-    <!-- Personagem -->
-    <a-box wasd-controls
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UKMJ05oOWH-HR2d8_dCiE8dtU0rpL0QCelZJQp1sX1L7X0nP&s"
-      height="0.8" width="0.8" depth="0.6" id="frog" position="0 1.8 1" rotation="-1 0 0" static-body
-      physics-collider="ignoreSleep: true"></a-box>
+<!-- CARRINHOS -->
 
-    <!-- POSTE -->
-    <!--
-    <a-entity position="10 2 0" animation="property: position; to: 13 1 0; loop: true">
-      <a-box src="postea.png" static-body physics-collider="ignoreSleep: true" position="-14 0 -5" rotation="0 0 0"
-        radius="0.1" height="2" depth="0.1" material geometry velocity></a-box>;
-      <a-box src="postea.png" static-body physics-collider="ignoreSleep: true" position="-2 0 -5" rotation="0 0 0"
-        radius="0.1" height="2" depth="0.1" material geometry velocity></a-box>;
-    -->
-
-    </a-entity>
-
-
-    <!-- CARRINHOS -->
-
-    <!-- CARRINHO 1 -->
-    <a-entity position="-10 1.5 1" animation="property: position; to: 28 1.5 1; loop:true; dur: 2000">
-      <!--
+<!-- CARRINHO 1 -->
+<a-entity position="-10 1.5 1 rotation="0 0 0">
   <a-animation attribute="position"
                to="28 1.5 1"
                dur="2000"
@@ -72,9 +78,9 @@
                repeat="indefinite"></a-animation>
 <a-box static-body src="carrod.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0" radius="2.1" height="1.1" width = "1.5" depth="0.15" color="#white"material geometry velocity></a-box>;
 	</a-entity>
--->
   
-   <!--CARRINHO 2 -->
+  
+  <!-- CARRINHO 2 -->
 <a-entity position="-10 1.5 3 rotation="0 0 0">
   <a-animation attribute="position"
                to="28 1.5 3"
@@ -171,9 +177,11 @@
   <a-plane position="0 1 -17" rotation="-90 0 0"  width = "40" height ="1" color = "#04E414"></a-plane>
   <a-plane position="0 1 -1" rotation="-90 0 0"  width = "40" height ="1" color = "#04E414"></a-plane>
 
-  <!--<a-sky src="chao3.jpg" rotation="50 0 0"></a-sky>
+  <a-sky src="chao3.jpg" rotation="50 0 0"></a-sky>
   <a-plane position="0 0.5 -15.5" rotation="-90 0 0"  width = "50" height ="40" src="chao2.jpg" ></a-plane>
-  -->
+
+
+
 
 </a-scene>
 </body>
