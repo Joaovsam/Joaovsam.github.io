@@ -3,13 +3,13 @@
 <head>
 
 
-  
-  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 
   <script
-  src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
+    src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
 
   <!--
@@ -35,7 +35,9 @@
       var colisao = 0;
       const pontuacao = 0;
 
-      AFRAME.registerComponent('carro', {
+
+
+      /*AFRAME.registerComponent('carro', {
         tick: function () {
           this.el.getAttribute("position").z -= velocidade;
           this.el.getAttribute("position").x += velocidade;
@@ -53,13 +55,24 @@
             location.reload()
           })
         }
-      });
+      });*/
 
       AFRAME.registerComponent('ganha', {
 
+        tick: function () {
+          this.el.getAttribute("position").z -= velocidade;
+          this.el.getAttribute("position").x += velocidade;
+          if (velocidade > -0.2) {
+            velocidade -= 0.01;
+          }
+          if (this.el.getAttribute("position").z <= +5.5) {
+            velocidade = 0;
+          }
+        },
+
 
         init: function () {
-          ganha.el.addEventListener("collisions", (e) => {
+          this.el.addEventListener("collisions", (e) => {
             pontuacao = pontuacao + 1;
             console.log("Pontuação : " + pontuacao)
             alert("Passou o sapo")
@@ -72,7 +85,7 @@
 
     </script>
 
-<canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="395" height="571"></canvas>
+    <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="395" height="571"></canvas>
 
 
     <!-- Personagem -->
@@ -157,9 +170,11 @@
     </a-entity>
 
     <!--posição para ganhar-->
-    <!-- <a-box id="ganhar" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
+
+    
+    <a-box id="ganhar" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
       radius="40" height="2" width="40" depth="0.15" color="#04E414" ganha material geometry velocity>
-    </a-box>;-->
+    </a-box>
 
 
     <!-- CONFIGURACAO DE CAMERA -->
