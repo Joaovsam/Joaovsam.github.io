@@ -4,15 +4,23 @@
 
   <title>Frogger</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-  <!--<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-  --><script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+
   <script
     src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
   <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+</head>
 
-  <!--
+<!--
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+  
+  <script
+    src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+-->
+<!--
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
@@ -29,7 +37,7 @@
   <a-scene physics>
 
 
-    <script type = "text/javascript">
+    <script type="text/javascript">
 
       var velocidade = 0;
       var colisao = 0;
@@ -59,7 +67,7 @@
 
       AFRAME.registerComponent('Lugarwin', {
 
-       
+
 
 
         init: function () {
@@ -162,11 +170,11 @@
 
     <!--posição para ganhar-->
 
-    
+
     <a-box id="ganha" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
-      radius="40" height="2" Lugarwin width="40" depth="0.15" color="#04E414"  material geometry velocity>
+      radius="40" height="2" Lugarwin width="40" depth="0.15" color="#04E414" material geometry velocity>
     </a-box>
-  
+
 
 
     <!-- CONFIGURACAO DE CAMERA -->
