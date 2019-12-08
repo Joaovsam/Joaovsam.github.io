@@ -41,27 +41,20 @@
     
           });
     
-          documente.addEventListener('5', function (evt) {
-    
-            if (velocidade < 0.1) {
-              velocidade += 0.3;
-            }
-    
-    
-          });
+         
     
     
         </script>
 <!-- Personagem -->
 <a-box wasd-controls src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7UKMJ05oOWH-HR2d8_dCiE8dtU0rpL0QCelZJQp1sX1L7X0nP&s" height="0.8" width="0.8" 
-depth="0.6" frog id="frog" position="0 1.418 -0.912" rotation="-1 0 0"static-body  physics-collider="ignoreSleep: true" material geometry velocity></a-box>
+depth="0.6" frog id="frog" position="0 1.418 -0.912" rotation="-1 0 0"static-body  physics-collider="ignoreSleep: true" frog material geometry velocity></a-box>
 
 
 
 <!-- CARRINHOS -->
 
 <!-- CARRINHO 1 -->
-<a-entity position="-10 1.5 1 rotation="0 0 0">
+<a-entity position="-10 1.5 1" rotation="0 0 0">
   <a-animation attribute="position"
                to="28 1.5 1"
                dur="2000"
@@ -70,16 +63,10 @@ depth="0.6" frog id="frog" position="0 1.418 -0.912" rotation="-1 0 0"static-bod
                repeat="indefinite"></a-animation>
 <a-box static-body src="carrod.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0" radius="2.1" height="1.1" width = "1.5" depth="0.15" color="#white"material geometry velocity></a-box>;
 	</a-entity>
-<<<<<<< HEAD
--->
-  
-   <!--CARRINHO 2 -->
-=======
   
   
   <!-- CARRINHO 2 -->
->>>>>>> parent of 58b3acc... Merge branch 'master' of https://github.com/Joaovsam/Joaovsam.github.io
-<a-entity position="-10 1.5 3 rotation="0 0 0">
+<a-entity position="-10 1.5 3" rotation="0 0 0">
   <a-animation attribute="position"
                to="28 1.5 3"
                dur="3000"
@@ -90,7 +77,7 @@ depth="0.6" frog id="frog" position="0 1.418 -0.912" rotation="-1 0 0"static-bod
 </a-entity>                                                                                      
 
 <!-- CARRINHO 3 -->
-<a-entity position="28 1.5 -1 rotation="0 0 0">
+<a-entity position="28 1.5 -1" rotation="0 0 0">
   <a-animation attribute="position"
                to="-10 1.5 -1"
                dur="2500"
@@ -100,7 +87,7 @@ depth="0.6" frog id="frog" position="0 1.418 -0.912" rotation="-1 0 0"static-bod
 <a-box static-body src="carroa.png"static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0" radius="2.1" height="1.1" width = "1.5" depth="0.15" color="#white"material geometry velocity></a-box>;
 </a-entity>     
 <!-- CARRINHO 4 -->
-<a-entity position="28 1.5 -3 rotation="0 0 0">
+<a-entity position="28 1.5 -3" rotation="0 0 0">
   <a-animation attribute="position"
                to="-10 1.5 -3"
                dur="3500"
