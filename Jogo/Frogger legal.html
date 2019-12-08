@@ -2,7 +2,7 @@
 
 <head>
 
-
+  <title>Frogger</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
@@ -57,18 +57,9 @@
         }
       });
 
-      AFRAME.registerComponent('ganha', {
+      AFRAME.registerComponent('Lugarwin', {
 
-        tick: function () {
-          this.el.getAttribute("position").z -= velocidade;
-          this.el.getAttribute("position").x += velocidade;
-          if (velocidade > -0.2) {
-            velocidade -= 0.01;
-          }
-          if (this.el.getAttribute("position").z <= +5.5) {
-            velocidade = 0;
-          }
-        },
+       
 
 
         init: function () {
@@ -172,9 +163,10 @@
     <!--posição para ganhar-->
 
     
-    <a-box id="ganhar" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
-      radius="40" height="2" width="40" depth="0.15" color="#04E414" ganha material geometry velocity>
+    <a-box id="ganha" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
+      radius="40" height="2" Lugarwin width="40" depth="0.15" color="#04E414"  material geometry velocity>
     </a-box>
+  
 
 
     <!-- CONFIGURACAO DE CAMERA -->
