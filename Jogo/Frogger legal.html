@@ -65,30 +65,49 @@
         }
       });
 
-      
+
 
       AFRAME.registerComponent('ganho', {
-        tick: function(){
-        const position = this.el.getAttribute('position');
-        
-        /*  
-        if(position.z <= -21.02)
-          location.reload()
-          pontuacao = pontuacao + 1;
-          document.getElementById('placar').setAttribute('value','Score: ')
-          */
+        tick: function () {
+          const position = this.el.getAttribute('position');
+
+          /*  
+          if(position.z <= -21.02)
+            location.reload()
+            pontuacao = pontuacao + 1;
+            document.getElementById('placar').setAttribute('value','Score: ')
+            */
         }
         ,
-        
+
         init: function () {
+
           this.el.addEventListener("collisions", (e) => {
             pontuacao += 1;
-            document.getElementById('placar').setAttribute('value','Score: ' + pontuacao)
+            document.getElementById('placar').setAttribute('value', 'Score: ' + pontuacao)
             alert("passou o sapo")
-            location.reload()
+            AFRAME.registerComponent('frog', {
+              tick: function () {
+                const position2 = frog.el.getAttribute('position')
+                position2.x = 0;
+                position2.y = 1.418;
+                position2.z = -0.912;
+
+                document.getElementById('cam').setAttribute('position', { x: -1, y: 3, z: 7 })
+              }
+
+
+            })
+            /*const position2 = frog.el.getAttribute('position')
+            position2.x =0; 
+            position2.y =1.418;
+            position2.z =-0.912;
+
+            document.getElementById('cam').setAttribute('position',{x:-1, y:3, z:7}  )
+            */
           })
-          }
-        
+        }
+
       });
 
 
@@ -158,40 +177,40 @@
       </a-box>;
     </a-entity>
 
-    <!--BARCO 2--> 
+    <!--BARCO 2-->
     <a-entity position="28 1.5 -9" animation="property: position; to: -10 1.5 -9; loop:true; dur: 3000">
       <a-box src="Barco2.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
     </a-entity>
 
-    <!--BARCO 3--> 
+    <!--BARCO 3-->
     <a-entity position="28 1.5 -11" animation="property: position; to: -10 1.5 -11; loop:true; dur: 5000">
       <a-box src="Barco3.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
     </a-entity>
 
-     <!--BARCO 4--> 
+    <!--BARCO 4-->
     <a-entity position="-10 1.5 -13" animation="property: position; to: 28 1.5 -13; loop:true; dur: 4000">
       <a-box src="Barco4.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
     </a-entity>
-   
+
     <!--posição para ganhar-->
 
 
     <a-box id="ganha" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
-      radius="2.1" height="2"  width="40" depth="0.15" color="#04E414" ganho material geometry velocity>
+      radius="2.1" height="2" width="40" depth="0.15" color="#04E414" ganho material geometry velocity>
     </a-box>
 
     <!--Pontuação-->
-    
-    <a-text  id="placar" value="SCORE : 0" position="-10 5 -24" color="black" width="100" text=""></a-text>
-    
+
+    <a-text id="placar" value="SCORE : 0" position="-10 5 -24" color="black" width="100" text=""></a-text>
+
     <!-- CONFIGURACAO DE CAMERA -->
-    <a-entity position="-1 3 7">
+    <a-entity id="cam" position="-1 3 7">
       <a-camera></a-camera>
     </a-entity>
 
