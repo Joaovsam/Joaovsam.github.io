@@ -67,10 +67,10 @@
 
       
 
-      AFRAME.registerComponent('frog', {
+      AFRAME.registerComponent('ganho', {
         tick: function(){
         const position = this.el.getAttribute('position');
-          
+        
         /*  
         if(position.z <= -21.02)
           location.reload()
@@ -84,7 +84,7 @@
           this.el.addEventListener("collisions", (e) => {
             pontuacao += 1;
             document.getElementById('placar').setAttribute('value','Score: ' + pontuacao)
-            
+            alert("passou o sapo")
             location.reload()
           })
           }
@@ -183,7 +183,7 @@
 
 
     <a-box id="ganha" static-body physics-collider="ignoreSleep: true" position="0 1.1 -21.01" rotation="0 0 0"
-      radius="2.1" height="2"  width="40" depth="0.15" color="#04E414" Lugarwin material geometry velocity>
+      radius="2.1" height="2"  width="40" depth="0.15" color="#04E414" ganho material geometry velocity>
     </a-box>
 
     <!--Pontuação-->
