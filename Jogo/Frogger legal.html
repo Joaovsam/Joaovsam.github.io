@@ -88,12 +88,15 @@
             alert("passou o sapo")
             AFRAME.registerComponent('frog', {
               tick: function () {
-                const position2 = frog.el.getAttribute('position')
+
+                const position2 = this.el.getAttribute('position')
+                if(position.z <= -20.0){
                 position2.x = 0;
                 position2.y = 1.418;
                 position2.z = -0.912;
 
                 document.getElementById('cam').setAttribute('position', { x: -1, y: 3, z: 7 })
+                }
               }
 
 
