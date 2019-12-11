@@ -25,7 +25,7 @@
       var colisao = 0;
       var pontuacao = 0;
 
-
+      
 
       AFRAME.registerComponent('carro', {
         tick: function () {
@@ -64,13 +64,21 @@
             document.getElementById('frog').setAttribute('position', { x: 0, y: 1.418, z: -0.912 })
             document.getElementById('cam').setAttribute('position', { x: 1, y: 1, z: -2 })
             pontuacao += 1;
-            document.getElementById('placar').setAttribute('value', 'Score: ' + pontuacao)
+            if (pontuacao == 10) {
+
+              document.getElementById('placar').setAttribute('value', 'VENCEU!')
+              alert("VENCEU!!")
+              location.reload()
+            }
+
+            document.getElementById('placar').setAttribute('value', 'SCORE: ' + pontuacao)
 
             alert("passou o sapo")
           })
         }
 
       });
+
 
 
 
@@ -130,7 +138,7 @@
 
     <!-- BARCO 1 -->
     <a-entity position="-10 1.5 -7" animation="property: position; to: 28 1.5 -7; loop:true; dur: 2000">
-        <a-animation attribute="position" to="28 1.5 -7" dur="3500" direction="right" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" to="28 1.5 -7" dur="2000" direction="right" repeat="indefinite"></a-animation>
       <a-box src="Barco1.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
@@ -138,7 +146,7 @@
 
     <!--BARCO 2-->
     <a-entity position="28 1.5 -9" animation="property: position; to: -10 1.5 -9; loop:true; dur: 3000">
-        <a-animation attribute="position" to="-10 1.5 -9" dur="3500" direction="left" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" to="-10 1.5 -9" dur="3000" direction="left" repeat="indefinite"></a-animation>
       <a-box src="barco2.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
@@ -146,7 +154,7 @@
 
     <!--BARCO 3-->
     <a-entity position="28 1.5 -11" animation="property: position; to: -10 1.5 -11; loop:true; dur: 5000">
-        <a-animation attribute="position" to="-10 1.5 -11" dur="3500" direction="left" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" to="-10 1.5 -11" dur="5000" direction="left" repeat="indefinite"></a-animation>
       <a-box src="barco3.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
@@ -154,7 +162,7 @@
 
     <!--BARCO 4-->
     <a-entity position="-10 1.5 -13" animation="property: position; to: 28 1.5 -13; loop:true; dur: 4000">
-        <a-animation attribute="position" to="28 1.5 -13" dur="3500" direction="right" repeat="indefinite"></a-animation>
+      <a-animation attribute="position" to="28 1.5 -13" dur="4500" direction="right" repeat="indefinite"></a-animation>
       <a-box src="barco4.png" static-body physics-collider="ignoreSleep: true" position="-9 0 -5" rotation="0 0 0"
         radius="2.1" height="1.1" width="3" depth="0.1" color="#white" carro material geometry velocity>
       </a-box>;
